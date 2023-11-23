@@ -1,0 +1,23 @@
+### Java and JavaFX files to ignore
+
+# Eclipse core files
+.settings/
+
+# Binary java files
+*.class
+
+# Java executable
+*.jar
+
+# classpath
+.classpath
+
+# Java folder with '.class' files
+bin/
+
+# Eclipse config file for projects
+.project
+
+# JavaFX build file
+build.fxbuild
+
