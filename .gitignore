@@ -15,9 +15,6 @@
 # Java folder with '.class' files
 bin/
 
-# Eclipse config file for projects
-.project
-
 # JavaFX build file
 build.fxbuild
 
