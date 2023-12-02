@@ -1,6 +1,7 @@
 package br.ufrn.imd.dao;
 
 import java.io.IOException;
+import java.util.Vector;
 
 import br.ufrn.imd.model.CommonUser;
 import br.ufrn.imd.model.User;
@@ -22,10 +23,15 @@ public class Test {
 		vipUser.setEmail("emanuelkywal@outlook.com");
 		vipUser.setUsername("Kywal Cabral");
 		vipUser.updatePassword("98765");
+//		
+//		db.signUpUser(user,"");
+//		db.signUpUser(vipUser,"");
 		
-		db.signUpUser(user);
-		db.signUpUser(vipUser);
 		
+//		Vector<Vector<String>> file = new Vector<Vector<String>>();
+//		file = db.readUsers();
+		
+//		System.out.println(file);
 	}
 
 }
