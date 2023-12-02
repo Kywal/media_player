@@ -7,12 +7,14 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.Vector;
 
+import br.ufrn.imd.model.CommonUser;
 import br.ufrn.imd.model.User;
+import br.ufrn.imd.model.VipUser;
 
 public class UserDataBase {
 
 	private static UserDataBase instance;
-	String filePath = "database\\users.txt"; // TODO -> Remove when dinamic filePath is implemented
+	private String filePath = "database\\users.txt"; // TODO -> Remove when dinamic filePath is implemented
 	protected Vector<User> users;
 
 // -------------- Singleton implementation -------------- //
@@ -44,6 +46,25 @@ public class UserDataBase {
 	 * @return
 	 */
 	private void getUsersFromDB() {
+		Vector<Vector<String>> file = readUsers();
+		
+		for (Vector<String> line : file) {
+			User user = null;
+			Boolean isVip = Boolean.valueOf(line.get(4));
+			
+			if(isVip) {
+				user = new VipUser();
+			} else {
+				user = new CommonUser();
+			}
+			
+			user.setEmail(line.get(0));
+			user.updatePassword(line.get(1));
+			user.setUsername(line.get(2));
+			user.setUserID(Integer.valueOf(line.get(3)));
+			
+			users.add(user);
+		}
 		
 	}
 	
@@ -57,9 +78,11 @@ public class UserDataBase {
 	public void signUpUser(User user) {
 		if(users.isEmpty()) {
 			user.setUserID(1);
+			users.add(user);
 			writeUser(user, filePath);
 		} else {
 			user.setUserID(users.lastElement().getUserID() + 1);
+			users.add(user);
 			writeUser(user,filePath);
 		}
 	}
@@ -70,7 +93,7 @@ public class UserDataBase {
 	 * 
 	 * @param user
 	 */
-	public void writeUser(User user, String filePath) {		
+	private void writeUser(User user, String filePath) {		
 		try {
 			
 			FileWriter myWriter = new 
@@ -95,11 +118,18 @@ public class UserDataBase {
 	}
 	
 	/**
+	 * Read the users database and saves it all in a string matrix.
 	 * 
-	 * @param filePath
-	 * @return
+	 * Data mapping in the string matrix is:
+	 * 	0 -> email,
+	 * 	1 -> password,
+	 *  2 -> username,
+	 *  3 -> userID,
+	 *  4 -> isVip.
+	 * 
+	 * @return The string matrix.
 	 */
-	public Vector<Vector<String>> readUsers() {		
+	private Vector<Vector<String>> readUsers() {		
 		Reader reader = null;
 		String data = "";
 		Vector<String> line = new Vector<String>();

@@ -1,2 +1,0 @@
-userInfo kywalfilho@outlook.com-12345-Emanuel Kywal-1-false
-userInfo emanuelkywal@outlook.com-98765-Kywal Cabral-2-true

@@ -13,25 +13,28 @@ public class Test {
 		
 		UserDataBase db = UserDataBase.getInstance();
 		
-		User user = new CommonUser();
-		User vipUser = new VipUser();
-		
-		user.setEmail("kywalfilho@outlook.com");
-		user.setUsername("Emanuel Kywal");
-		user.updatePassword("12345");
-		
+		VipUser vipUser = new VipUser();
 		vipUser.setEmail("emanuelkywal@outlook.com");
-		vipUser.setUsername("Kywal Cabral");
-		vipUser.updatePassword("98765");
+		vipUser.updatePassword("12345");
+		vipUser.setUsername("Emanuel Kywal");
+		
+		CommonUser cUser = new CommonUser();
+		cUser.setEmail("kywalfilho@outlook.com");
+		cUser.updatePassword("98765");
+		cUser.setUsername("Kywal filho");
+		
+		db.signUpUser(vipUser);
+		db.signUpUser(cUser);
+		
+//		db = UserDataBase.getInstance();
 //		
-//		db.signUpUser(user,"");
-//		db.signUpUser(vipUser,"");
-		
-		
-//		Vector<Vector<String>> file = new Vector<Vector<String>>();
-//		file = db.readUsers();
-		
-//		System.out.println(file);
+//		for (User user : db.users) {
+//			System.out.println(user.getEmail());
+//			System.out.println(user.getPassword());
+//			System.out.println(user.getUsername());
+//			System.out.println(user.getIsVip());
+//			System.out.println(user.getUserID());
+//		}
 	}
 
 }
