@@ -14,7 +14,6 @@ public class Playlist {
 //	protected Image cover;
 	protected Double duration;
 	protected LocalDate creationDate;
-	protected ArrayList<Folder> folders;
 	protected ArrayList<Music> musics;
 	protected ArrayList<String> genres;
 	
@@ -23,7 +22,6 @@ public class Playlist {
 	 */
 	public Playlist() {
 		creationDate = LocalDate.now();
-		folders = new ArrayList<Folder>();
 		musics = new ArrayList<Music>();
 		genres = new ArrayList<String>();
 	}
@@ -98,40 +96,6 @@ public class Playlist {
 	 */
 	public LocalDate getCreationDate() {
 		return creationDate;
-	}
-
-//	--------------- Folders methods ------------- //
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public ArrayList<Folder> getFolders() {
-		return folders;
-	}
-
-	/**
-	 * 
-	 * @param folders
-	 */
-	public void setFolders(ArrayList<Folder> folders) {
-		this.folders = folders;
-	}
-	
-	/**
-	 * 
-	 * @param f
-	 */
-	public void addFolder(Folder f) {
-		folders.add(f);
-	}
-	
-	/**
-	 * 
-	 * @param f
-	 */
-	public void removeFolder(Folder f) {
-		folders.remove(f);
 	}
 
 //	--------------- Musics methods -------------- //

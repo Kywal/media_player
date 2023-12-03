@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Music {
 
-	protected String name, language;
+	protected String name, language, path;
 	protected Integer year;
 	protected Double duration;
 	protected ArrayList<String> authors;
@@ -16,6 +16,22 @@ public class Music {
 	public Music() {
 		authors = new ArrayList<String>();
 		genres = new ArrayList<String>();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getPath() {
+		return path;
+	}
+
+	/**
+	 * 
+	 * @param path
+	 */
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 	/**
