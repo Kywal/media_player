@@ -3,7 +3,6 @@ package br.ufrn.imd.dao;
 import java.io.IOException;
 import java.util.Vector;
 
-import br.ufrn.imd.model.CommonUser;
 import br.ufrn.imd.model.User;
 import br.ufrn.imd.model.VipUser;
 
@@ -18,14 +17,16 @@ public class Test {
 		vipUser.updatePassword("12345");
 		vipUser.setUsername("Emanuel Kywal");
 		
-		CommonUser cUser = new CommonUser();
-		cUser.setEmail("kywalfilho@outlook.com");
-		cUser.updatePassword("98765");
-		cUser.setUsername("Kywal filho");
+		System.out.println(vipUser instanceof User);
 		
-		db.signUpUser(vipUser);
-		db.signUpUser(cUser);
-		
+//		User cUser = new User();
+//		cUser.setEmail("kywalfilho@outlook.com");
+//		cUser.updatePassword("98765");
+//		cUser.setUsername("Kywal filho");
+//		
+//		db.signUpUser(vipUser);
+//		db.signUpUser(cUser);
+//		
 //		db = UserDataBase.getInstance();
 //		
 //		for (User user : db.users) {
