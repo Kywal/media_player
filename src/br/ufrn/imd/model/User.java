@@ -4,19 +4,24 @@
 
 package br.ufrn.imd.model;
 
+import java.util.ArrayList;
+
 /**
  * 
  */
-public abstract class User {
+public class User {
 	
 	protected Integer userID;
 	protected String username, email, password;
 	protected Boolean isVip = false;
+	protected ArrayList<Folder> folders;
 
 	/**
 	 * 
 	 */
-	public User() { }
+	public User() {
+		folders = new ArrayList<Folder>();
+	}
 	
 	/**
 	 * 
@@ -103,6 +108,40 @@ public abstract class User {
 		} else {
 			return false;
 		}
+	}
+	
+//	--------------- folders methods ----------------- //
+
+	/**
+	 * 
+	 * @return
+	 */
+	public ArrayList<Folder> getFolders() {
+		return folders;
+	}
+
+	/**
+	 * 
+	 * @param folders
+	 */
+	public void setFolders(ArrayList<Folder> folders) {
+		this.folders = folders;
+	}
+	
+	/**
+	 * 
+	 * @param f
+	 */
+	public void addFolder(Folder f) {
+		folders.add(f);
+	}
+	
+	/**
+	 * 
+	 * @param f
+	 */
+	public void removeFolder(Folder f) {
+		folders.remove(f);
 	}
 	
 	

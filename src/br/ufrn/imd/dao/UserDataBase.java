@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.Vector;
 
-import br.ufrn.imd.model.CommonUser;
 import br.ufrn.imd.model.User;
 import br.ufrn.imd.model.VipUser;
 
@@ -55,7 +54,7 @@ public class UserDataBase {
 			if(isVip) {
 				user = new VipUser();
 			} else {
-				user = new CommonUser();
+				user = new User();
 			}
 			
 			user.setEmail(line.get(0));
