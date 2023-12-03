@@ -74,15 +74,23 @@ public class UserDataBase {
 	 * @param user
 	 * @throws IOException 
 	 */
-	public void signUpUser(User user) {
-		if(users.isEmpty()) {
-			user.setUserID(1);
-			users.add(user);
-			writeUser(user, filePath);
-		} else {
-			user.setUserID(users.lastElement().getUserID() + 1);
-			users.add(user);
-			writeUser(user,filePath);
+	public void signUpUser(User user) throws IOException {
+		
+		try {
+			
+			if(users.isEmpty()) {
+				user.setUserID(1);
+				users.add(user);
+				writeUser(user, filePath);
+			} else {
+				user.setUserID(users.lastElement().getUserID() + 1);
+				users.add(user);
+				writeUser(user,filePath);
+			}
+			
+		} catch (IOException e) {
+			System.out.println("An error ocurred while signing the new user");
+			e.printStackTrace();
 		}
 	}
 	
@@ -92,7 +100,7 @@ public class UserDataBase {
 	 * 
 	 * @param user
 	 */
-	private void writeUser(User user, String filePath) {		
+	private void writeUser(User user, String filePath) throws IOException {		
 		try {
 			
 			FileWriter myWriter = new 

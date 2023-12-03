@@ -1,5 +1,7 @@
 package br.ufrn.imd.dao;
 
+import java.io.IOException;
+
 import br.ufrn.imd.model.User;
 
 public class PlayerDataBase {
@@ -35,8 +37,9 @@ public class PlayerDataBase {
 	/**
 	 * 
 	 * @param user
+	 * @throws IOException 
 	 */
-	public void signUpUser(User user) {
+	public void signUpUser(User user) throws IOException {
 		users.signUpUser(user);
 	}
 	
