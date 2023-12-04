@@ -22,7 +22,7 @@ public class PlayerDataBase {
 	 * @throws IOException 
 	 * 
 	 */
-	private PlayerDataBase() throws IOException {
+	private PlayerDataBase() {
 		
 		try {			
 			users = UserDataBase.getInstance();
