@@ -94,6 +94,55 @@ public class UserDataBase {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param email
+	 * @param password
+	 * @return
+	 */
+	public Boolean authUser(String email, String password) {
+		
+		for (User user : users) {			
+			if(user.getEmail().equals(email) && user.getPassword().equals(password)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * 
+	 * @param userID
+	 * @param password
+	 * @return
+	 */
+	public Boolean authUser(Integer userID, String password) {
+		
+		for (User user : users) {			
+			if(user.getUserID().equals(userID) && user.getPassword().equals(password)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * 
+	 * @param userID
+	 * @return
+	 */
+	public User findUser(Integer userID) {
+		for (User user : users) {			
+			if(user.getUserID() == userID) {
+				return user;
+			}
+		}
+		
+		return null;
+	}
+	
 // ----------------- I/O from DB methods -------------------------- //
 	
 	/**
