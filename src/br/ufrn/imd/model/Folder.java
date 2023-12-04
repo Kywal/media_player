@@ -4,35 +4,14 @@ import java.util.ArrayList;
 
 public class Folder {
 
-	protected String name, path;
-	protected ArrayList<Music> musics;
-	protected Double duration;
+	protected String folderName;
+	protected String path;
 	
 	/**
 	 * 
 	 */
-	public Folder() {
-		duration = updateDuration();
-		musics = new ArrayList<Music>();
-	}
+	public Folder() { }
 	
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * 
-	 * @param name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	/**
 	 * 
 	 * @return
@@ -49,54 +28,18 @@ public class Folder {
 		this.path = path;
 	}
 
-// -------------- Musics methods ------------ //
-	
 	/**
-	 * 
-	 * @return
+	 * @return the folderName
 	 */
-	public ArrayList<Music> getMusics() {
-		return musics;
+	public String getFolderName() {
+		return folderName;
 	}
 
 	/**
-	 * 
-	 * @param musics
+	 * @param folderName the folderName to set
 	 */
-	public void setMusics(ArrayList<Music> musics) {
-		this.musics = musics;
+	public void setFolderName(String folderName) {
+		this.folderName = folderName;
 	}
 
-
-//	--------- Duration methods ----------- //
-
-	/**
-	 * 
-	 * @return
-	 */
-	public Double getDuration() {
-		return duration;
-	}
-
-	/**
-	 * 
-	 * @param duration
-	 */
-	public void setDuration(Double duration) {
-		this.duration = duration;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	private Double updateDuration() {
-		Double totalDuration = 0.0;
-		
-		for (Music music : musics) {
-			totalDuration += music.getDuration();
-		}
-		
-		return totalDuration;
-	}
 }
