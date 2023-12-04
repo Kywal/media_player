@@ -1,6 +1,7 @@
 package br.ufrn.imd.model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Music {
 
@@ -165,5 +166,30 @@ public class Music {
 	public void removeGenre(String g) {
 		genres.remove(g);
 	}
+	
+// -------------------- Utilitary methods ---------------------------- //
+		
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Music other = (Music) obj;
+		return Objects.equals(authors, other.authors) && Objects.equals(duration, other.duration)
+				&& Objects.equals(genres, other.genres) && Objects.equals(language, other.language)
+				&& Objects.equals(name, other.name) && Objects.equals(path, other.path)
+				&& Objects.equals(year, other.year);
+	}
+
+	@Override
+	public String toString() {
+		return "Music [name=" + name + ", language=" + language + ", path=" + path + ", year=" + year + ", duration="
+				+ duration + ", authors=" + authors + ", genres=" + genres + "]";
+	}
+	
+	
 	
 }
