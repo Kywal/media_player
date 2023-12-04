@@ -1,4 +1,4 @@
-#Media Player 🔊 🎶
+# Media Player 🔊 🎶
 
 Desktop tool to listen and organize your favorite songs
 
