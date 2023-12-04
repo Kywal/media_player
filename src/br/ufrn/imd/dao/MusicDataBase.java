@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.Vector;
 
+import br.ufrn.imd.model.Folder;
 import br.ufrn.imd.model.Music;
 import br.ufrn.imd.model.Music;
 import br.ufrn.imd.model.User;
@@ -90,6 +91,32 @@ public class MusicDataBase {
 			writeMusic(m);
 		}
 	}
+	
+	/**
+	 * @throws IOException 
+	 * 
+	 */
+	public void addFolder(Folder f) throws IOException {
+		
+		try {
+			
+			File folder = new File(f.getPath());
+			
+			File files[] = folder.listFiles();
+			
+			for (int i = 0; i < files.length; i++) {
+				Music m = new Music();
+				m.setPath(files[i].getAbsolutePath());
+				
+				addMusic(m);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("An error ocurred while adding the folder.");
+			e.printStackTrace();
+		}
+		
+	}
 
 // ----------------- I/O from DB methods -------------------------- //
 
@@ -98,7 +125,7 @@ public class MusicDataBase {
 	 * @param p
 	 * @throws IOException 
 	 */
-	public void writeMusic(Music music) throws IOException {
+	private void writeMusic(Music music) throws IOException {
 		String dash = "-";
 		
 		try {
@@ -132,7 +159,6 @@ public class MusicDataBase {
 	
 	/**
 	 * 
-	 * Data mapping: 00 -> UserID; 01 -> Password; 10 -> Music ID; 11 -> Name; 12 -> Subtitle; 13 -> Creation Date; 14 -> Duration;
 	 * @return
 	 */
 	private Vector<Vector<String>> readMusics() {
