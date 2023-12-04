@@ -98,8 +98,18 @@ public class Playlist {
 		return creationDate;
 	}
 
+	/**
+	 * 
+	 * @param creationDate
+	 */
+	public void setCreationDate(LocalDate creationDate) {
+		this.creationDate = creationDate;
+	}
+	
+
 //	--------------- Musics methods -------------- //
 	
+
 	/**
 	 * 
 	 * @return
